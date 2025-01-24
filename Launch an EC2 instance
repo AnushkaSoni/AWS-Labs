@@ -1,0 +1,35 @@
+Goal:
+Launch a single EC2 instance in a public subnet accessible over the Internet via SSH.
+
+Step1:
+Open the AWS console and search for EC2. image
+
+Step2:
+Click on Launch Instance. image
+
+Step3:
+Name your instance (it is optional), define number of instances you want to launch and select AMI (An AMI is a template that contains the software configuration (operating system, application server, and applications) required to launch your instance.) image
+
+Step4:
+Select the instance type for your instance. The instance type defines the CPU and memory capacity. It also specifies the storage architecture that the instance will suppport, along with network perfomance available.
+
+Step5:
+Create a new key pair and download it to your system. image
+
+Step6:
+Make sure you select the public default subnet and that the Auto-assign Public IP setting is enabled for that subnet. You may leave all the other settings with their default values. image
+
+Step7:
+You can accept the default settings which creates an EBS root volume. image
+
+Step8:
+Click on 'Launch Instance', check the settings if everything looks good, go on to Launch. You will be redirected to new window and see your instance launched successfully. image
+
+Once the instance is up and running you can test and validate it through terminal.aws-ec2 instance connect.
+
+Step1:
+Select the EC2 instance and click on 'Connect'. image
+
+From the new window, copy the example ssh command-line. It will have the following format: $ ssh -i "lab-001.pem" ec2-user@ec2-100-25-181-143.compute-1.amazonaws.com The ec2-user is the default user name in Amazon Linux AMIs. The hostname ec2-100-25-181-143.compute-1.amazonaws.com is the DNS name for your instance that AWS automatically defines. Open a terminal window and move to the folder where you saved the downloaded key file lab-001.pem. Change the permissions of the key file:
+
+$ chmod 400 lab-001.pem Paste and run the ssh command. You should be able to log into your instance. If you are a Windows user, you can also use Putty to connect. Follow this link for instructions.
